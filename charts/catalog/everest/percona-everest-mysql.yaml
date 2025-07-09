@@ -3,7 +3,7 @@ apiVersion: application.epinio.io/v1
 kind: Service
 metadata:
   name: everest-mysql
-  namespace: {{ .Release.Namespace }}
+  namespace: epinio
   annotations:
     application.epinio.io/catalog-service-secret-types: Opaque
 spec:
@@ -11,17 +11,10 @@ spec:
   shortDescription: MySQL Instances managed by Percona Everest
   description: |
     This service is going to deploy a simple MySQL db instance managed by Percona Everest.
-  chart: everest-mysql
-  chartVersion: 0.0.1
+  chart: percona-mysql
+  chartVersion: 0.0.2
   serviceIcon: https://github.com/percona/everest/raw/main/logo.png
-  appVersion: 0.0.1
+  appVersion: 0.0.2
   helmRepo:
     name: epinio-service-catalog
-    url: "https://epinio-service-catalog.github.io/"
-  values: |-
-    {{- template "epinio.catalog-service-values" . }}
-  settings:
-    "ingress.enabled":
-      type: "bool"
-    "ingress.hostname":
-      type: "string"
+    url: "https://krumio.github.io/epinio-service-catalog/"

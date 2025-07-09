@@ -3,12 +3,12 @@ kind: DatabaseCluster
 metadata:
   generation: 2
   labels:
-    clusterName: {{ .Release.Name }}
+    clusterName: {{ .Values.epinio.serviceName }}
     podSchedulingPolicyName: everest-default-mysql
-  name: {{ .Release.Name }}
+  name: {{ .Values.epinio.serviceName }}
   namespace: {{ .Release.Namespace }}
   crVersion: 1.17.0
-  hostname: {{ .Release.Name }}-haproxy.everest
+  hostname: {{ .Values.epinio.serviceName }}-haproxy.everest
   observedGeneration: 2
   port: 3306
   ready: 2
@@ -27,7 +27,7 @@ spec:
       class: local-path
       size: 25Gi
     type: pxc
-    userSecretsName: everest-secrets-{{ .Release.Name }}
+    userSecretsName: everest-secrets-{{ .Values.epinio.serviceName }}
     version: 8.0.41-32.1
   monitoring:
     resources: {}
