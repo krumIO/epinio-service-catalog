@@ -1,0 +1,42 @@
+apiVersion: everest.percona.com/v1alpha1
+kind: DatabaseCluster
+metadata:
+  generation: 2
+  labels:
+    clusterName: {{ .Release.Name }}
+    podSchedulingPolicyName: everest-default-mysql
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  crVersion: 1.17.0
+  hostname: {{ .Release.Name }}-haproxy.everest
+  observedGeneration: 2
+  port: 3306
+  ready: 2
+  size: 2
+  status: ready
+spec:
+  backup:
+    pitr:
+      enabled: false
+  engine:
+    replicas: 1
+    resources:
+      cpu: '1'
+      memory: 1G
+    storage:
+      class: local-path
+      size: 25Gi
+    type: pxc
+    userSecretsName: everest-secrets-{{ .Release.Name }}
+    version: 8.0.41-32.1
+  monitoring:
+    resources: {}
+  podSchedulingPolicyName: everest-default-mysql
+  proxy:
+    expose:
+      type: internal
+    replicas: 1
+    resources:
+      cpu: 200m
+      memory: 200M
+    type: haproxy

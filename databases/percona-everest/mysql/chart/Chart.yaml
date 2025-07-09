@@ -1,0 +1,6 @@
+apiVersion: v2
+name: percona-mysql
+description: A chart for a MySQL instance managed by Percona Everest
+type: application
+version: 0.0.1
+appVersion: "0.0.1"
