@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  percona-mysql:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2025-07-09T01:17:05.074114444Z"
+    description: A chart for a MySQL instance managed by Percona Everest
+    digest: d6504bc08fb6bcc3f37369be26153e48311a6dd34c74b990e5d0750b3f220e56
+    name: percona-mysql
+    type: application
+    urls:
+    - https://github.com/krumIO/epinio-service-catalog/releases/download/percona-mysql-0.0.1/percona-mysql-0.0.1.tgz
+    version: 0.0.1
+generated: "2025-07-09T01:17:05.074119504Z"
